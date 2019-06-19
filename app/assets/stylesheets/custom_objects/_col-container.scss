@@ -1,0 +1,62 @@
+* {
+    box-sizing: border-box;
+}
+
+.browse-buttons {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.col-container {
+    @include span-columns(12);
+    font-size: 1em;
+}
+
+.col-side {
+    @include span-columns(4);
+
+    h2 {
+      color: black;
+      font-size: 2em;
+      font-weight: bold;
+    }
+
+
+}
+
+.col-main {
+    @include span-columns(8);
+    padding-left: 1em;
+    font-size: 1em;
+
+    a:-webkit-any-link {
+      text-decoration: none;
+    }
+
+    h2 {
+      color: black;
+      font-size: 1em;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+
+    li {
+      list-style-type: none;
+    }
+
+    .micro2 {
+      display: table;
+      padding: unset;
+      letter-spacing: 1px;
+      font-weight: 400;
+      color: #5f5f5f;
+      font-size: .75em;
+    }
+}
+
+@include mq($bp-medium, false, max) {
+    .col-container, .col-side, .col-main {
+        @include span-columns(12);
+        margin: 15px auto 0 auto;
+    }
+}
