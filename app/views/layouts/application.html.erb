@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= yield :head %>
+  </head>
+
+  <body>
+
+    <!-- Header -->
+    <%= render(:partial => 'shared/header') %>
+
+    <!-- Main -->
+    <main id="main" class="frontend">
+      <div class="wvu-container">
+        <!-- Yield -->
+        <div class="app-main-content">
+          <%= yield %>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footers -->
+    <%= render(:partial => 'shared/builtby_footer') %>
+  </body>
+
+</html>

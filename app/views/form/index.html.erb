@@ -1,0 +1,30 @@
+
+<%= form_for :item_request, url: "/" do |form| %>
+
+  <%= form.hidden_field :apiKey, value: ENV["API_KEY"] %>
+  <%= form.hidden_field :Oemadm, value: ENV["ORDER_EMAIL"] %>
+  <%= form.hidden_field :Quantity, value: 1 %>
+
+  <%= form.label "ISBN:" %> 
+  <%= form.text_field :ISBN, value: params[:isbn], readonly: true %><br />
+
+  <%= form.label "Name:" %>
+  <%= form.text_field :Facmemb, value: session['cas']['extra_attributes']['displayName'], readonly: true %><br />
+
+  <%= form.label "Department:" %> 
+  <%= form.text_field :intrdisc, value: session['cas']['extra_attributes']['busoff'], readonly: true %><br />
+
+  <%= form.label "Email:" %>
+  <%= form.text_field :Oemend, value: session['cas']['extra_attributes']['mail'], readonly: true %><br />
+
+  <%= form.label "Pickup Location:" %>
+  <%= form.select :Site, options_for_select(["Downtown Campus Library", "Evansdale Library", "George R. Farmer Jr. Law Library", "Health Sciences Library", "Health Sciences Library (Charleston)", "Mary F. Shipper Library", "Institute of Technology, Beckley Campus", "West Virginia & Regional History Center"]), prompt: "Select One", class: 'genForm_dropBox' %><br />
+
+  <%= form.label "University Role:" %>
+  <%= form.select :Role, options_for_select(["Faculty", "Undergrad", "Grad", "Staff", "Other"], params[:role]), class: 'genForm_dropBox' %><br />
+
+  <%= form.label "Note:" %>
+  <%= form.text_area :IntNotes %><br />
+  <%= form.submit  %>
+
+<% end  %>
