@@ -16,7 +16,9 @@ class FormController < ApplicationController
     response = RestClient.get('https://oasis-services.proquest.com/order/', params: form_params.to_h)
     final_data = JSON.parse(response)
 
-    if final_data["Code"] == '100'
+    puts final_data["Code"]
+
+    if final_data["Code"] == 100
       redirect_to '/success'
     else
       render json: response.body
