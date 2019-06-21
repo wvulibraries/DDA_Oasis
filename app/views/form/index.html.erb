@@ -1,10 +1,6 @@
 
 <%= form_for :item_request, url: "/" do |form| %>
 
-  <%= form.hidden_field :apiKey, value: ENV["API_KEY"] %>
-  <%= form.hidden_field :Oemadm, value: ENV["ORDER_EMAIL"] %>
-  <%= form.hidden_field :Quantity, value: 1 %>
-
   <div class="field half last">
     <%= form.label "ISBN:" %> 
     <%= form.text_field :ISBN, value: params[:isbn], readonly: true, size: "100x1"  %>

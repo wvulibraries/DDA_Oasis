@@ -13,29 +13,37 @@ class FormController < ApplicationController
   end
 
   def submit
-    response = RestClient.get('https://oasis-services.proquest.com/order/', params: form_params.to_h)
+    redirect_to '/', error: 'Please Select a Site Location' && return if form_params[:Site].blank?
+
+    response = RestClient.get(ENV["OASIS_URL"], params: form_values)
     final_data = JSON.parse(response)
 
-    puts final_data["Code"]
-
-    if final_data["Code"] == 100
+    case final_data['Code']
+    when 100
       redirect_to '/success'
+    when 200, 400
+      redirect_to '/', error: final_data['Message']
     else
-      render json: response.body
+      redirect_to '/', error: 'Unable to process request'
     end
   end
 
   def success; end
 
-  def error; end
+  def form_values
+    hash = form_params.to_h
+
+    # add missing items to the form values
+    hash[:apiKey] = ENV["API_KEY"]
+    hash[:Oemadm] = ENV["ORDER_EMAIL"]
+    hash[:Quantity] = 1
+    hash
+  end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def form_params
     params.require(:item_request)
-          .permit(:apiKey,
-                  :Oemadm,
-                  :Quantity,
-                  :ISBN,
+          .permit(:ISBN,
                   :Facmemb,
                   :intrdisc,
                   :Oemend,
