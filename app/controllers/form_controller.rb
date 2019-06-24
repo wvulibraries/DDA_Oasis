@@ -13,9 +13,10 @@ class FormController < ApplicationController
   end
 
   def submit
-    redirect_to '/', error: 'Please Select a Site Location' && return if form_params[:Site].blank?
+    redirect_to '/', error: 'Please Select a Site Location' and return if form_params[:Site].blank?
 
     response = RestClient.get(ENV["OASIS_URL"], params: form_values)
+    
     final_data = JSON.parse(response)
 
     case final_data['Code']
