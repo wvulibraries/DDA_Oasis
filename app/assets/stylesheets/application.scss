@@ -2,26 +2,22 @@
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  *= require_self
  */
-
- // WVU Brand Stuff
- @import 'wvu_brand_theme/4-custom/variables';
- @import 'wvu_brand_theme/0-plugins/*';
- @import 'wvu_brand_theme/1-base/base_import';
- @import 'wvu_brand_theme/2-modules/*';
- @import 'wvu_brand_theme/3-layouts/*';
- @import 'wvu_brand_theme/1-base/ie9';
- @import 'wvu_brand_theme/4-custom/*';
+ @import "core/normalize";
 
  // Font Awesome
  @import "font-awesome-sprockets";
  @import "font-awesome";
 
+ // Core items
+ @import "core/variables";
+
  // import mixins so that all partials can use them.
  @import "mixins/*";
 
+ @import "elements/*";
+
+ // Brand Items
+ @import "brand/*";
+
  // application wide
  @import "partials/*";
-
-
- // it is important that the order gets imported in a certain way so that variables are able to be used in other scss files
- @import "custom_objects/*";

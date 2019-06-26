@@ -1,5 +1,7 @@
 footer{
-  @include span-columns(12);
+  display: block;
+  float: left;
+  width: 100%;
 
   background: $wvu-blue;
   padding: 10px;
@@ -20,7 +22,7 @@ footer{
   }
 
   .built, .by { font-weight: 300; }
-  .wvu { color: $gold; }
+  .wvu { color: $wvu-gold; }
   .libs { color: #fff; margin-left:-4px; }
 }
 

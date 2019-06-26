@@ -1,0 +1,136 @@
+$flying-wv-w-signature: 'https://patterns.wvu.edu/images/flying-wv-w-signature.png' !default;
+$flying-wv-w-signature-gold-bg: 'https://patterns.wvu.edu/images/flying-wv-w-signature-gold-bg.png' !default;
+$flying-wv-w-signature-white-bg: 'https://patterns.wvu.edu/images/flying-wv-w-signature-white-bg.png' !default;
+$flying-wv-w-sub-brand: 'https://patterns.wvu.edu/images/flying-wv-w-signature.png' !default;
+
+.wvu-masthead { 
+  background-color: $wvu-blue;
+  color:#fff;  
+    padding-bottom: 40px;  
+
+  .wvu-masthead__container { 
+    padding:1em;
+  }
+
+  .wvu-masthead__logo { 
+    background: url($flying-wv-w-signature) no-repeat left 30% transparent;
+    //background-size:100% auto;
+    //padding: 0px 0px 20px 54px;
+    display: block;
+    float: left;
+    width: 100%; 
+    text-align:center;
+    background-position: center 30%; 
+    background-size:300px auto; 
+    position:relative; 
+    @include mq($bp-medium){
+      display: block;
+      float: left;
+      width: 50%;
+      background-position: left 30%;
+      text-align:left;
+    }
+
+    @include mq($bp-xlarge){
+        display: block;
+        float: left;
+        width: 33.33%; 
+    }
+  }
+
+  .wvu-masthead__university-name{
+    position: absolute;
+    left: -99999em;
+  }
+
+  .wvu-masthead__title {
+    display: inline-block;
+    position: relative;
+    padding-top:50px; 
+    font-size: $base-font-size;
+    left:-2.4em;
+    text-transform: uppercase;
+    color:#fff;
+
+    @include mq($bp-medium){ 
+      left:3em; 
+    }
+  }
+}
+
+.wvu-header-list {
+  display: block;
+  float: left;
+  width: 100%; 
+  text-align:right;
+
+  @include mq($bp-medium){
+     display: block;
+     float: left;
+     width: 50%;
+  }
+
+  @include mq($bp-xlarge){
+    display: block;
+    float: left;
+    width: 66.67%; 
+  }
+
+  ul { 
+    width:unset;
+    margin-top:1em;
+    list-style:none; 
+
+    @include mq($bp-medium){
+      float:right;
+    }
+  } 
+
+  li a { 
+    display: block;
+    float: left;
+    width: 50%;
+
+    padding:.5em; 
+    border:1px solid #fff;
+    color:#fff;
+    text-align:center;
+    margin-top:.5em;
+    font-size:14px;
+    &:focus, &:hover, &:active { 
+      color: $wvu-gold;
+      border-color: $wvu-gold;
+    }
+    @include mq($bp-medium){
+      display:inline-block; 
+      width:unset;
+      float:left;
+      border-color:transparent; 
+      &:focus, &:hover, &:active { 
+        color: $wvu-gold;
+        border-color:transparent;
+      }
+      &:focus { 
+        border: 2px dotted $wvu-gold; 
+      }
+    }
+  }
+  li { 
+    @include mq($bp-medium){
+      display:inline-block; 
+      width:unset;
+      float:left;
+    }
+    &:last-child { 
+      a { 
+        display: block;
+        float: left;
+        width: 100%; 
+        
+        @include mq($bp-medium){ 
+          width:unset;
+        }
+      }
+    }
+  }
+}

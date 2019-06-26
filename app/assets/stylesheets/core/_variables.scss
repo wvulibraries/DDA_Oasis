@@ -1,0 +1,72 @@
+/*********************************************************************
+    Variables
+**********************************************************************/
+
+$default: #eee;
+$gray-text: #aaa;
+
+$light-gray: $default;
+
+// Web Application Colors
+$link-color: #009bff;
+$notice: #29abe0;
+$error: #d9534f;
+$success: #93c54b;
+$warning: #f47c3c;
+
+$wvu-blue: #002855;
+$wvu-gold: #EAAA00;
+
+// Accent
+$pms-286-c: #0033A0;
+$pms-300-c: #005EB8;
+$pms-629-c: #9BD3DD;
+$pms-7554-c: #4B3D2A;
+$pms-7557-c: #8F701E;
+
+// Neutral
+$black: #2C2A29;
+$pms-432-c: #333F48;
+$pms-429-c: #A2AAAD;
+$pms-warm-gray-11: #6E6259;
+$pms-warm-gray-7: #7C736A;
+$pms-warm-gray-3: #BFB8AF;
+
+// Color Modifiers
+$pms-115-c: #FDDA24;
+$pms-144-c: #ED8B00;
+$pms-166-c: #CD4C08;
+$pms-7476-c: #0D5257;
+$pms-5625-c: #657A68;
+$pms-558-c: #9ABEAA;
+$pms-180-c: #BE3A34;
+
+// Font Colors
+$action-color: $link-color;
+$base-accent-color: $pms-300-c !default;
+
+// Link Colors
+$base-link-color: $base-accent-color !default;
+$base-button-color: $base-link-color !default;
+
+// Border
+$base-border-color: $light-gray;
+$base-border: 1px solid $base-border-color;
+
+// Custom Existing Vars
+$border: $base-border;
+
+// Breakpoints
+$bp-micro: 340 !default;
+$bp-mini: 450 !default;
+$bp-small: 570 !default;
+$bp-medium: 768 !default;
+$bp-large: 960 !default;
+$bp-xlarge: 1200 !default;
+$bp-jumbo: 1720 !default;
+
+// Font Sizes
+$base-font-size: .8em;
+
+// Font
+$helvetica-neue-font-stack: 'Helvetica Neue', Helvetica, 'Helvetica LT Std', 'Helvetica CY', Arial, 'Lucida Grande', sans-serif !default;
