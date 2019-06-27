@@ -9,14 +9,13 @@ class FormController < ApplicationController
 
   def index
     params[:role] = user_role?
-    params[:isbn] = '9781620971994'
   end
 
   def submit
     redirect_to '/', error: 'Please Select a Site Location' and return if form_params[:Site].blank?
 
     response = RestClient.get(ENV["OASIS_URL"], params: form_values)
-    
+
     final_data = JSON.parse(response)
 
     case final_data['Code']
@@ -35,8 +34,8 @@ class FormController < ApplicationController
     hash = form_params.to_h
 
     # add missing items to the form values
-    hash[:apiKey] = ENV["API_KEY"]
-    hash[:Oemadm] = ENV["ORDER_EMAIL"]
+    hash[:apiKey] = ENV['API_KEY']
+    hash[:Oemadm] = ENV['ORDER_EMAIL']
     hash[:Quantity] = 1
     hash
   end

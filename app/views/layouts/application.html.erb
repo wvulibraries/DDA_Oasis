@@ -12,13 +12,13 @@
   <body>
     <!-- Header -->
     <%= render(:partial => 'shared/header') %> 
-
     <!-- Main -->
-    <main id="main" class="wrapper">
-      <div class="container"> 
+    <main id="main" class="wrapper"> 
+
+      <div class="container">       
         <!-- Flash -->
-        <%= render "utilities/alerts" %>
-              
+        <%= render "utilities/alerts" %> 
+
         <!-- Yield -->
         <div class="app-main-content">
           <%= yield %>
