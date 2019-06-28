@@ -33,7 +33,7 @@
   @include transform(translateY(-50%));
   text-shadow: none;
   &:hover, &:focus {
-    cursor:pointer;
+    cursor: default;
   }
 }
 
