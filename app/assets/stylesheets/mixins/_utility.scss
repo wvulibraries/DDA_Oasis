@@ -33,3 +33,12 @@ $easeInOutExpo:cubic-bezier(1.000, 0.000, 0.000, 1.000); /* easeInOutExpo */
 @mixin translate ($x, $y) {
    @include transform(translate($x, $y));
 }
+
+// clearfix
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
