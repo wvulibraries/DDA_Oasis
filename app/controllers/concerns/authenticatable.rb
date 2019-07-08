@@ -4,7 +4,7 @@ module Authenticatable
 
   # detrmine if the user can access the admin panel
   def access_permissions
-    true if authenticated?
+    return true if authenticated?
     redirect_to :login
   end
 
@@ -16,7 +16,7 @@ module Authenticatable
   # login methods
   def login
     if authenticated?
-      redirect_to :form_create, success: I18n.t('auth.success')
+      redirect_to root_path, success: I18n.t('auth.success')
     else
       render(plain: 'Unauthorized!', status: :unauthorized)
     end
