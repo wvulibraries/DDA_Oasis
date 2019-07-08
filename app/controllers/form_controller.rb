@@ -5,15 +5,17 @@ class FormController < ApplicationController
   require 'json'
 
   # run a filter with authenticatable concern
-  before_action :access_permissions unless Rails.env.test?
+  before_action :access_permissions, only: [:create, :submit] unless Rails.env.test?
 
-  def index
+  def index; end
+
+  def create
     params[:role] = user_role?
   end
 
   def submit
-    redirect_to '/', error: 'Missing ISBN' and return if form_params[:ISBN].blank?
-    redirect_to '/', error: 'Please Select a Site Location' and return if form_params[:Site].blank?
+    redirect_to :form_create, error: 'Missing ISBN' and return if form_params[:ISBN].blank?
+    redirect_to :form_create, error: 'Please Select a Site Location' and return if form_params[:Site].blank?
 
     response = RestClient.get(ENV["OASIS_URL"], params: form_values)
 
@@ -23,9 +25,9 @@ class FormController < ApplicationController
     when 100
       redirect_to '/success'
     when 200, 400
-      redirect_to '/', error: final_data['Message']
+      redirect_to :form_create, error: final_data['Message']
     else
-      redirect_to '/', error: 'Unable to process request'
+      redirect_to :form_create, error: 'Unable to process request'
     end
   end
 
