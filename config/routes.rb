@@ -1,13 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'form#create'
-
-  # post '/create',
-  #     to: 'form#create',
-  #     as: :form_create
-
-  # get '/create',
-  #     to: 'form#create',
-  #     as: :form_create
+  root to: 'form#index'
 
   match "/create" => "form#create", via: [:get, :post]
 

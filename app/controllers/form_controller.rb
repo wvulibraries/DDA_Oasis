@@ -14,8 +14,8 @@ class FormController < ApplicationController
   end
 
   def submit
-    # redirect_to root_path, error: 'Missing ISBN' and return if form_params[:ISBN].blank?
-    # redirect_to root_path, error: 'Please Select a Site Location' and return if form_params[:Site].blank?
+    redirect_to root_path, error: 'Missing ISBN' and return if form_params[:ISBN].blank?
+    redirect_to root_path, error: 'Please Select a Site Location' and return if form_params[:Site].blank?
 
     response = RestClient.get(ENV["OASIS_URL"], params: form_values)
 
