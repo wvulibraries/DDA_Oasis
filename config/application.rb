@@ -30,7 +30,7 @@ module Oasisform
     config.rack_cas.server_url = 'https://sso.wvu.edu/cas/' if Rails.env.production?
 
     # force ssl
-    # config.force_ssl = true if Rails.env.production?
+    config.force_ssl = true if Rails.env.production?
 
     # session store
     config.session_store :cookie_store, expire_after: nil, secure: true if Rails.env.production?
