@@ -1,6 +1,4 @@
 class ItemRequestController < ApplicationController
-  include FormHelper
-
   require 'rest_client'
   require 'json'
 

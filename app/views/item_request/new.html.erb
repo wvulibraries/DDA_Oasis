@@ -1,8 +1,14 @@
 <%= form_for :item_request, url: '/submit' do |form| %>
   <% if @item_request.errors.any? %>
-    <% @item_request.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@item_request.errors.count, "Error") %> </h3> 
+      <p> The following prohibited this request from being submitted: </p>
+      <ul>
+        <% @item_request.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
   <% end %>
 
   <div>
