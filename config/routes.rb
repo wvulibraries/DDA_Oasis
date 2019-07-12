@@ -1,15 +1,20 @@
 Rails.application.routes.draw do
-  root to: 'form#create'
+  root to: 'item_request#new'
 
-  match "/create" => "form#create", via: [:get, :post]
+  match '/new', 
+        to: 'item_request#new', via: [:get, :post],
+        as: :item_request_new
 
-  post '/submit', 
-      to: 'form#submit',
-      as: :form_submit
+  post '/submit',
+       to: 'item_request#submit',
+       as: :item_request_submit
+
+  get '/submit',
+      to: 'item_request#new'
 
   get '/success', 
-      to: 'form#success',
-      as: :form_success
+      to: 'item_request#success',
+      as: :item_request_success
 
   # auth
   get '/login',

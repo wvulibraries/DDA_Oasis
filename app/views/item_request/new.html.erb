@@ -1,10 +1,14 @@
-
-<%= form_for :item_request, url: "/submit" do |form| %>
+<%= form_for :item_request, url: '/submit' do |form| %>
+  <% if @item_request.errors.any? %>
+    <% @item_request.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  <% end %>
 
   <div>
     <div class="field full">
       <%= form.label :ISBN, 'ISBN:'%> 
-      <%= form.text_field :ISBN, value: params[:isbn], readonly: true, size: '100x1'%>
+      <%= form.text_field :ISBN, size: '100x1'%>
     </div>
 
     <div class="field full">
@@ -24,7 +28,7 @@
 
     <div class="field full">
       <%= form.label :Site, "Pickup Location:"%>
-      <%= form.select :Site, options_for_select(["Downtown Campus Library", "Evansdale Library", "George R. Farmer Jr. Law Library", "Health Sciences Library", "Health Sciences Library (Charleston)", "Mary F. Shipper Library", "Institute of Technology, Beckley Campus", "West Virginia & Regional History Center"]), prompt: "Select One", class: 'genForm_dropBox' %><br />
+      <%= form.select :Site, options_for_select(["Downtown Campus Library", "Evansdale Library", "George R. Farmer Jr. Law Library", "Health Sciences Library", "Health Sciences Library (Charleston)", "Mary F. Shipper Library", "Institute of Technology, Beckley Campus", "West Virginia & Regional History Center"]), prompt: "Select One", class: 'genForm_dropBox', required: true %><br />
     </div>
 
     <div class="field full">
