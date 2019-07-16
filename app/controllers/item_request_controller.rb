@@ -4,12 +4,11 @@ class ItemRequestController < ApplicationController
 
   # run a filter with authenticatable concern
   before_action :access_permissions, only: [:new, :submit] unless Rails.env.test?
-  before_action :set_user_role, only: [:new]
 
   def index; end
 
   def new
-    @item_request = ItemRequest.new
+    @item_request = ItemRequest.new(set_form_fields)
   end
 
   def submit
@@ -25,6 +24,22 @@ class ItemRequestController < ApplicationController
   def success; end
 
   private
+
+  def set_form_fields
+    { 
+      Facmemb: session['cas']['extra_attributes']['displayName'],
+      intrdisc: session['cas']['extra_attributes']['busoff'],
+      Oemend: session['cas']['extra_attributes']['mail'],
+      Role: set_user_role
+    }
+  end
+
+  def set_user_role
+    return 'Faculty' if session['cas']['extra_attributes']['isFaculty'] == 'TRUE'
+    return 'Staff' if session['cas']['extra_attributes']['isEmployee'] == 'TRUE'
+    return 'Undergrad' if session['cas']['extra_attributes']['isStudent'] == 'TRUE'
+    'Other'
+  end
 
   def process_request
     final_data = rest_submit
@@ -44,14 +59,6 @@ class ItemRequestController < ApplicationController
     response = RestClient.get(ENV["OASIS_URL"], params: form_values)
 
     JSON.parse(response)
-  end
-
-  def set_user_role
-    return 'Faculty' if session['cas']['extra_attributes']['isFaculty'] == 'TRUE'
-    return 'Staff' if session['cas']['extra_attributes']['isEmployee'] == 'TRUE'
-    return 'Undergrad' if session['cas']['extra_attributes']['isStudent'] == 'TRUE'
-
-    'Other'
   end
 
   def form_values

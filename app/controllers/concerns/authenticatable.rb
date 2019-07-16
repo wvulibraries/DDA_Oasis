@@ -5,7 +5,7 @@ module Authenticatable
   # detrmine if the user can access the admin panel
   def access_permissions
     return true if authenticated?
-    redirect_to :login
+    render(plain: 'Unauthorized!', status: :unauthorized)
   end
 
   # look to see if authenticated
