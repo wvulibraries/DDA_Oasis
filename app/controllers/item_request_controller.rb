@@ -50,10 +50,11 @@ class ItemRequestController < ApplicationController
       render :success
     when 200, 400
       flash[:error] = final_data['Message']
+      render :new
     else
       flash[:error] = 'Unable to process request'
+      render :new
     end
-    render :new
   end
 
   def rest_submit
