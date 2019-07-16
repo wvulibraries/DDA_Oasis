@@ -27,6 +27,7 @@ class ItemRequestController < ApplicationController
 
   def set_form_fields
     { 
+      ISBN: params['isbn'],
       Facmemb: session['cas']['extra_attributes']['displayName'],
       intrdisc: session['cas']['extra_attributes']['busoff'],
       Oemend: session['cas']['extra_attributes']['mail'],
