@@ -1,5 +1,3 @@
-<%= params.inspect %>
-
 <%= form_for @item_request, url: '/submit' do |form| %>
   <% if @item_request.errors.any? %>
     <div id="error_explanation">
