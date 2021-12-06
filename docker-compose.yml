@@ -18,7 +18,7 @@ services:
       - TERM=xterm
       # - RAILS_ENV=production #uncomment for production
     volumes:
-      - .:/home/oasisform
+      - ./oasisform:/home/oasisform
     ports:
       - "3001:3000"
   
