@@ -1,5 +1,8 @@
 FROM ruby:2.6.2
 
+WORKDIR /home/oasisform
+ADD ./oasisform /home/oasisform
+
 # Install our dependencies and rails
 RUN \
     gem install bundler \
@@ -19,8 +22,6 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -\
     && apt-get update \
     && apt-get install -y yarn
     
-WORKDIR /home/oasisform
-ADD . /home/oasisform
 RUN bundle install
 
 ADD ./startup.sh /usr/bin/
