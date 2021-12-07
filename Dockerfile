@@ -1,4 +1,4 @@
-FROM ruby:2.6.2
+FROM ruby:2.7.5
 
 WORKDIR /home/oasisform
 ADD ./oasisform /home/oasisform
