@@ -3,7 +3,7 @@
 The application is design to work with worldcat and oasis api to submit book requests.
 
 ## Versions
-- Rails 5.2.3
+- Rails 5.2.6
 - Ruby  2.7.5
 
 ## Deployment Notes
